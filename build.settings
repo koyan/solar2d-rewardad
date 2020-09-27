@@ -1,0 +1,55 @@
+--
+-- For more information on build.settings, see the Project Build Settings guide at:
+-- https://docs.coronalabs.com/guide/distribution/buildSettings
+--
+
+settings =
+{
+	orientation =
+	{
+		-- Supported values for orientation:
+		-- portrait, portraitUpsideDown, landscapeLeft, landscapeRight
+		default = "portrait",
+		supported = { "portrait", },
+	},
+
+	--
+	-- Android section
+	--
+	android =
+	{
+	minSdkVersion = "16",	
+	applicationChildElements =
+		{
+				[[
+						<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
+								android:value="ADD_CORRECT_APP_ID_HERE"/>  -- replace with your app id. See: https://goo.gl/fQ2neu
+				]],
+		},
+		usesPermissions =
+		{
+			"android.permission.INTERNET",
+		},
+	},
+
+	--
+	-- iOS section
+	--
+	iphone =
+	{
+		xcassets = "Images.xcassets",
+		plist =
+		{
+			UIStatusBarHidden = false,
+			UILaunchStoryboardName = "LaunchScreen",
+		},
+	},
+	
+	plugins =
+	{
+			["plugin.admob"] =
+			{
+					publisherId = "com.coronalabs"
+			},
+	},	
+}
